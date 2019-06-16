@@ -7,7 +7,6 @@ import { useDispatchToStore } from '../hooks';
 
 const ProductListHooks: React.FC = () => {
   const productsModule = useSelector((state: AppStore) => state.productsModule);
-  const [count, setCount] = useState(1);
   const handleDispatch = useDispatchToStore('ADD_TO_CART')
   const partialDispatch = useCallback(
     handleDispatch,
@@ -23,8 +22,6 @@ const ProductListHooks: React.FC = () => {
           )
         })
       }
-      <div>{count}</div>
-      <button onClick={() => setCount(count + 1)}>Add count</button>
       <hr></hr>
     </>
   )
