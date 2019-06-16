@@ -1,0 +1,16 @@
+.productItem {
+  display: flex;
+  border: solid 1px black;
+  padding: 20px;
+  margin: 20px;
+  &__title {
+    flex: 1;
+  }
+  &__price  {
+    flex: 1;
+  }
+  &__quantity {
+    flex: 1;
+  }
+
+}
