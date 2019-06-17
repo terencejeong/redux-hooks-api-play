@@ -26,17 +26,9 @@ const initialState: Products = {
   error: false
 };
 
-const getProduct = (state: Products, productId: string) => {
-  return state.products.map((product: Product) => {
-    if (product.id === productId) {
-      return {
-        ...product,
-        quantity: product.quantity - 1
-      }
-    }
-    return product
-  })
-}
+const getProduct = (state: Products, selectedProduct: Product) =>
+  state.products.map((product: Product) =>
+    (product.id === selectedProduct.id ? { ...product, quantity: product.quantity - 1 } : product));
 
 export const products = (state = initialState, action: any) => {
   switch (action.type) {

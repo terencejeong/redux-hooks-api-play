@@ -1,6 +1,5 @@
-import React, { useCallback, useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { partial } from 'ramda';
+import React, { useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import { AppStore, Product } from '../types';
 import ProductItem from '../components/ProductItem';
 import { useDispatchToStore } from '../hooks';

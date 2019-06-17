@@ -4,9 +4,9 @@ import { Product } from '../types';
 
 const ProductItem: Function = memo((
   ({ product, dispatchToStore }: ProductItemProps) => {
-    function handleClick(id: string, event: MouseEvent, ) {
+    function handleClick(product: Product, event: MouseEvent, ) {
       event.preventDefault();
-      dispatchToStore(id);
+      dispatchToStore(product);
     }
     return (
       <div className="productItem">
@@ -21,7 +21,7 @@ const ProductItem: Function = memo((
         </div>
         <div className="productItem__purchase">
           <button
-            onClick={partial(handleClick, [product.id])}
+            onClick={partial(handleClick, [product])}
             disabled={product.quantity === 0}
           >
             Buy One

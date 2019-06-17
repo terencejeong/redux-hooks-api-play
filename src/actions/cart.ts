@@ -1,8 +1,10 @@
-const addToCartSafe: Function = (productId: string) => ({
+import { Product } from '../types'
+
+const addToCartSafe: Function = (product: Product) => ({
   type: 'ADD_TO_CART',
-  payload: productId
+  payload: product
 });
 
-export const addToCart = (productId: string) => (dispatch: Function, getState: Function) => {
-  dispatch(addToCartSafe(productId));
+export const addToCart = (product: Product) => (dispatch: Function, getState: Function) => {
+  dispatch(addToCartSafe(product));
 };

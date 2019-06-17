@@ -4,4 +4,4 @@ The plan is to compare the perfomance of connect and traditional methods of conn
 
 I am also really curious on the performance with these new hooks and how they will work in conjunction with useMemo and useCallback. 
 
-I also plan to add the Reselect Library to add memoization, which will needed to be accounted for. 
+Added Reselect but will need to do a usecase where we use a selector in multiple component instances. 
