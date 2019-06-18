@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 import { AppStore, CartItem } from '../types';

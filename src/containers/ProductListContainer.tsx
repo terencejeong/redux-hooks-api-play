@@ -1,7 +1,7 @@
-import React, { Dispatch } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import ProductItem from '../components/ProductItem';
-import { AppStore, Product, Products } from '../types';
+import { AppStore, Product } from '../types';
 
 // TODO Fix all the types. 
 const mapStateToProps = (state: AppStore) => ({
