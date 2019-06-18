@@ -6,7 +6,7 @@ const initialState: Cart = {
   error: false
 };
 
-const addItemToCart: Function = (cart: Array<CartItem>, product: Product) => {
+const addItemToCart: Function = (cart: Array<CartItem>, product: Product): Array<CartItem> => {
   const { quantity, ...item } = product;
   let foundItem = cart.find((item: CartItem) => item.id === product.id);
   if (foundItem) return cart.map((item: CartItem) => item.id === product.id ? { ...item, quantityBought: item.quantityBought + 1 } : item)

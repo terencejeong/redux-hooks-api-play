@@ -26,7 +26,7 @@ const initialState: Products = {
   error: false
 };
 
-const getProduct = (state: Products, selectedProduct: Product) =>
+const getProduct = (state: Products, selectedProduct: Product): Array<Product> =>
   state.products.map((product: Product) =>
     (product.id === selectedProduct.id ? { ...product, quantity: product.quantity - 1 } : product));
 

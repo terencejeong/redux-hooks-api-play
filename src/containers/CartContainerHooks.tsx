@@ -3,34 +3,35 @@ import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 import { AppStore, CartItem } from '../types';
 
+type cartSelectorData = {
+  shoppingCart: Array<CartItem>,
+  shoppingCartTotal: number
+}
+
 const getShoppingCart = (state: AppStore): Array<CartItem> => state.cartsModule.cart;
 
 const makeShoppingCartSelector = createSelector(
   [getShoppingCart],
-  (shoppingCart: Array<CartItem>) => {
-    return shoppingCart
-  }
-)
-
-const makeShoppigCartTotalPriceSelector = createSelector(
-  [getShoppingCart],
-  (shoppingCart: Array<CartItem>) => {
-    return shoppingCart.reduce((accum: number, current: CartItem) => {
+  (shoppingCart: Array<CartItem>): cartSelectorData => {
+    const shoppingCartTotal = shoppingCart.reduce((accum: number, current: CartItem) => {
       return accum + (current.value * current.quantityBought)
     }, 0)
+    return {
+      shoppingCart,
+      shoppingCartTotal
+    }
   }
 )
 
 const CartContainerHooks: React.FC = () => {
   // since we are using selectors here, these values are only recalculated when state.cartsModule.cart changes.
-  const cartsModule = useSelector((state: AppStore) => makeShoppingCartSelector(state));
-  const totalCartPrice = useSelector((state: AppStore) => makeShoppigCartTotalPriceSelector(state));
+  const cartsModule: cartSelectorData = useSelector((state: AppStore) => makeShoppingCartSelector(state));
   return (
     <>
       <h1>Cart Container with useSelector Hooks and Reselect</h1>
       <div>
         {
-          cartsModule.map((item: CartItem) => {
+          cartsModule.shoppingCart.map((item: CartItem) => {
             return (
               <div key={item.id}>
                 {item.id} {item.quantityBought}
@@ -38,7 +39,7 @@ const CartContainerHooks: React.FC = () => {
             )
           })
         }
-        Total Price: ${totalCartPrice}
+        Total Price: ${cartsModule.shoppingCartTotal}
       </div>
       <hr></hr>
     </>

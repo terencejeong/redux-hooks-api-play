@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import { connect } from 'react-redux';
+import ProductItem from '../components/ProductItem';
 import { AppStore, Product, Products } from '../types';
 
 // TODO Fix all the types. 
-const mapStateToProps = (state: AppStore) => {
-  return ({
-    products: state.productsModule.products
-  })
+const mapStateToProps = (state: AppStore) => ({
+  products: state.productsModule.products
+});
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    addItem: (product: Product) => dispatch({ type: 'ADD_TO_CART', payload: product })
+  }
 }
+
 const ProductListContainer: React.FC = (props: any) => {
   const { products } = props;
   return (
@@ -17,9 +23,7 @@ const ProductListContainer: React.FC = (props: any) => {
         {
           products.map((product: Product) => {
             return (
-              <div key={product.id}>
-                {product.title}
-              </div>
+              <ProductItem product={product} key={product.id} dispatchToStore={props.addItem} />
             )
           })
         }
@@ -29,4 +33,4 @@ const ProductListContainer: React.FC = (props: any) => {
   )
 };
 
-export default connect(mapStateToProps, null)(ProductListContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductListContainer);

@@ -6,7 +6,7 @@ import ProductListContainer from './containers/ProductListContainer';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="App" style={{ textAlign: 'center' }}>
       <ProductListHooks />
       <CartContainerHooks />
       <ProductListContainer />
