@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import ProductItem from '../components/ProductItem';
 import { AppStore, Product } from '../types';
@@ -9,7 +10,7 @@ const mapStateToProps = (state: AppStore) => ({
   products: state.productsModule.products
 });
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     addItem: (product: Product) => dispatch({ type: actions.ADD_TO_CART, payload: product })
   }

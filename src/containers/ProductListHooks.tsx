@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { Dispatch } from 'redux';
 import { useSelector } from 'react-redux';
 import { AppStore, Product, Products } from '../types';
 import ProductItem from '../components/ProductItem';
