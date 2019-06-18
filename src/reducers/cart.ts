@@ -1,5 +1,7 @@
 import { Action, Reducer } from 'redux';
 import { Cart, CartItem, Product } from '../types';
+import { actions } from '../actions/constants';
+
 const initialState: Cart = {
   cart: [],
   isLoading: false,
@@ -18,7 +20,7 @@ const addItemToCart: Function = (cart: Array<CartItem>, product: Product): Array
 
 export const cart: Reducer<Cart, Action> = (state = initialState, action: any) => {
   switch (action.type) {
-    case "ADD_TO_CART":
+    case actions.ADD_TO_CART:
       return {
         ...state,
         cart: addItemToCart(state.cart, action.payload)

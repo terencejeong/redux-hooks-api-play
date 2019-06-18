@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import { AppStore, Product, Products } from '../types';
 import ProductItem from '../components/ProductItem';
 import { useDispatchToStore } from '../hooks';
+import { actions } from '../actions/constants';
 
 const ProductListHooks: React.FC = () => {
   const productsModule: Products = useSelector((state: AppStore) => state.productsModule);
-  const handleDispatch = useDispatchToStore('ADD_TO_CART')
+  const handleDispatch = useDispatchToStore(actions.ADD_TO_CART);
   const partialDispatch = useCallback(
     handleDispatch,
     [handleDispatch]

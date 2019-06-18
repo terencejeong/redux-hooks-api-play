@@ -1,5 +1,6 @@
 // need to import the actions
 import { Products, Product } from '../types';
+import { actions } from '../actions/constants';
 
 const initialState: Products = {
   products: [
@@ -32,11 +33,11 @@ const getProduct = (state: Products, selectedProduct: Product): Array<Product> =
 
 export const products = (state = initialState, action: any) => {
   switch (action.type) {
-    case "SET_PRODUCTS":
+    case actions.SET_PRODUCTS:
       return {
         ...state,
       }
-    case "ADD_TO_CART":
+    case actions.ADD_TO_CART:
       return {
         ...state,
         products: getProduct(state, action.payload)
