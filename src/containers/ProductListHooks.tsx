@@ -1,21 +1,25 @@
 import React, { useCallback, useState, memo } from 'react';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 import { AppStore, Product } from '../types';
+import { useDispatchToStore } from '../hooks';
 import ProductItem from '../components/ProductItem';
 import CountView from '../components/CountView';
 import { actions } from '../actions/constants';
 
 const ProductListHooks: React.FC = memo(() => {
 
-  const dispatch = useDispatch();
-
   const products: Product[] = useSelector((state: AppStore) => state.productsModule.products, shallowEqual);
 
-  const partialDispatch = useCallback(
-    (payload) => dispatch({ type: actions.ADD_TO_CART, payload}),
-    [dispatch]
+  const handleDispatch = useDispatchToStore(actions.ADD_TO_CART);
+  const dispatchToStore = useCallback(
+    handleDispatch,
+    [actions.ADD_TO_CART]
   );
-
+  // const dispatch = useDispatch();
+  // const dispatchToStore = useCallback(
+  //   (payload) => dispatch({ type: actions.ADD_TO_CART, payload}),
+  //   [dispatch]
+  // );
   const [count, setCount] = useState(0);
   
   return (
@@ -24,7 +28,7 @@ const ProductListHooks: React.FC = memo(() => {
       {
         products.map((product: Product) => {
           return (
-            <ProductItem product={product} key={product.id} dispatchToStore={partialDispatch} />
+            <ProductItem product={product} key={product.id} dispatchToStore={dispatchToStore} />
           )
         })
       }

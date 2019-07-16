@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 }
 
-const ProductListContainer: React.FC = (props: any) => {
+const ProductListContainerOld: React.FC = (props: any) => {
   const { products } = props;
   return (
     <>
@@ -35,4 +35,4 @@ const ProductListContainer: React.FC = (props: any) => {
   )
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductListContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductListContainerOld);

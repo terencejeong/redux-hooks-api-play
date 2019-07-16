@@ -32,11 +32,13 @@ const getProduct = (state: Products, selectedProduct: Product): Product[] =>
     (product.id === selectedProduct.id ? { ...product, quantity: product.quantity - 1 } : product));
 
 export const productsOld = (state = initialState, action: any) => {
+
   switch (action.type) {
     case actions.SET_PRODUCTS_OLD:
       return {
         ...state,
       }
+      
     case actions.ADD_TO_CART_OLD:
       return {
         ...state,

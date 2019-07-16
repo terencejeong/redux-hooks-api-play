@@ -32,6 +32,7 @@ const getProduct = (state: Products, selectedProduct: Product): Product[] =>
     (product.id === selectedProduct.id ? { ...product, quantity: product.quantity - 1 } : product));
 
 export const products = (state = initialState, action: any) => {
+  
   switch (action.type) {
     case actions.SET_PRODUCTS:
       return {

@@ -4,6 +4,7 @@ import { AppStore, StoreHours } from '../types';
 import { actions } from '../actions/constants';
 import ProductListHooks from './ProductListHooks';
 import CartContainerHooks from './CartContainerHooks';
+import CartContainerOld from './CartContainerOld';
 import ProductListContainer from './ProductListContainer';
 
 const ParentContainer: React.FC = () => {
@@ -22,6 +23,7 @@ const ParentContainer: React.FC = () => {
       <ProductListHooks />
       <CartContainerHooks />
       <ProductListContainer />
+      <CartContainerOld />
     </>
   )
 };
