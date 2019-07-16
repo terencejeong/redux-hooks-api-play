@@ -11,27 +11,14 @@ const ParentContainer: React.FC = () => {
   const handleStoreHours = useDispatch();
   return (
     <>
-      {
-        storeHoursModule.open
-        ? 
-          <div>
-            <h1>OPEN</h1>
-            <button
-              onClick={() => handleStoreHours({type: actions.STORE_OPERATING})}
-            >
-            close store
-            </button>
-          </div>
-        : 
-          <div>
-            <h1>CLOSE</h1>
-            <button
-              onClick={() => handleStoreHours({type: actions.STORE_OPERATING})}
-            >
-            close store
-            </button>
-          </div>
-      }
+      <div>
+        <h1>{storeHoursModule.open ? 'OPEN' : 'CLOSE'}</h1>
+        <button
+          onClick={() => handleStoreHours({type: actions.STORE_OPERATING})}
+        >
+        {storeHoursModule.open ? 'close store' : 'open store'}
+        </button>
+      </div>
       <ProductListHooks />
       <CartContainerHooks />
       <ProductListContainer />
