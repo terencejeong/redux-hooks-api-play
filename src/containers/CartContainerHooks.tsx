@@ -9,7 +9,6 @@ type cartSelectorData = {
 }
 
 const getShoppingCart = (state: AppStore): CartItem[] => {
-
   return state.cartsModule.cart;
 }
 
