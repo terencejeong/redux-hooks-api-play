@@ -9,14 +9,13 @@ type cartSelectorData = {
 }
 
 const getShoppingCart = (state: AppStore): CartItem[] => {
-  console.log(state)
+
   return state.cartsModule.cart;
 }
 
 const makeShoppingCartSelector = createSelector(
   [getShoppingCart],
   (shoppingCart: CartItem[]): cartSelectorData => {
-    console.log('hi')
     const shoppingCartTotal = shoppingCart.reduce((accum: number, current: CartItem) => {
       return accum + (current.value * current.quantityBought)
     }, 0)

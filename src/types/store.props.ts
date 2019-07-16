@@ -5,5 +5,6 @@ import { StoreHours } from './storeHours.props'
 export interface AppStore {
   cartsModule: Cart,
   productsModule: Products,
-  storeHoursModule: StoreHours
+  storeHoursModule: StoreHours,
+  productsOldModule: Products,
 };
