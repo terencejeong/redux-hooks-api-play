@@ -31,6 +31,8 @@ export const cartOld: Reducer<Cart, Action> = (state = initialState, action: any
         cart: addItemToCart(state.cart, action.payload)
       }
     default:
-      return initialState
+      return {
+        ...state
+      }
   }
 }

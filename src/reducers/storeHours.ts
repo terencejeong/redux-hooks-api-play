@@ -13,6 +13,8 @@ export const storeHours = (state = initialState, action: any) => {
         open: !state.open
       }
     default:
-      return initialState  
+      return {
+        ...state
+      }
   }
 };

@@ -11,15 +11,12 @@ const ProductListHooks: React.FC = memo(() => {
   const products: Product[] = useSelector((state: AppStore) => state.productsModule.products, shallowEqual);
 
   const handleDispatch = useDispatchToStore(actions.ADD_TO_CART);
+
   const dispatchToStore = useCallback(
     handleDispatch,
     [actions.ADD_TO_CART]
   );
-  // const dispatch = useDispatch();
-  // const dispatchToStore = useCallback(
-  //   (payload) => dispatch({ type: actions.ADD_TO_CART, payload}),
-  //   [dispatch]
-  // );
+ 
   const [count, setCount] = useState(0);
   
   return (

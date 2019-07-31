@@ -44,6 +44,8 @@ export const products = (state = initialState, action: any) => {
         products: getProduct(state, action.payload)
       }
     default:
-      return initialState
+      return {
+        ...state
+      }
   }
 }
