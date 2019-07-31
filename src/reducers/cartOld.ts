@@ -14,18 +14,18 @@ const addItemToCart: Function = (cart: CartItem[], product: Product): CartItem[]
 
   let foundItem = cart.find((item: CartItem) => item.id === product.id);
 
-  if (foundItem) return cart.map((item: CartItem) => item.id === product.id ? { ...item, quantityBought: item.quantityBought + 1 } : item);
+  if (foundItem) return cart.map((item: CartItem) => item.id === product.id ? { ...item, quantityBought: item.quantityBought + 1 } : item)
 
   return [
     ...cart,
     { ...item, quantityBought: 1 }
   ]
-};
+}
 
-export const cart: Reducer<Cart, Action> = (state = initialState, action: any) => {
+export const cartOld: Reducer<Cart, Action> = (state = initialState, action: any) => {
   
   switch (action.type) {
-    case actions.ADD_TO_CART:
+    case actions.ADD_TO_CART_OLD:
       return {
         ...state,
         cart: addItemToCart(state.cart, action.payload)

@@ -6,7 +6,7 @@ export interface Product {
 }
 
 export interface Products {
-  products: Array<Product>,
+  products: Product[],
   loading: boolean,
   error: boolean
 }

@@ -1,4 +1,4 @@
-export * from './cart.props';
-export * from './products.props';
-export * from './store.props'
-
+export * from './cart.types';
+export * from './products.types';
+export * from './store.types'
+export * from './storeHours.types';

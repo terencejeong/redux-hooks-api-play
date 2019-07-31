@@ -7,12 +7,12 @@ import { actions } from '../actions/constants';
 
 // TODO Fix all the types. 
 const mapStateToProps = (state: AppStore) => ({
-  products: state.productsModule.products
+  products: state.productsOldModule.products
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    addItem: (product: Product) => dispatch({ type: actions.ADD_TO_CART, payload: product })
+    addItem: (product: Product) => dispatch({ type: actions.ADD_TO_CART_OLD, payload: product })
   }
 }
 

@@ -5,20 +5,20 @@ import { actions } from '../actions/constants';
 const initialState: Products = {
   products: [
     {
-      id: '1a',
-      title: 'MacBook Pro',
+      id: '3a',
+      title: 'MacBook Old',
       value: 2000,
       quantity: 3
     },
     {
-      id: '2b',
-      title: 'iPad',
+      id: '4b',
+      title: 'iPad Old',
       value: 1200,
       quantity: 6
     },
     {
-      id: '3c',
-      title: 'iPod Classic',
+      id: '5c',
+      title: 'iPod Classic Old',
       value: 400,
       quantity: 1
     },
@@ -31,14 +31,15 @@ const getProduct = (state: Products, selectedProduct: Product): Product[] =>
   state.products.map((product: Product) =>
     (product.id === selectedProduct.id ? { ...product, quantity: product.quantity - 1 } : product));
 
-export const products = (state = initialState, action: any) => {
-  
+export const productsOld = (state = initialState, action: any) => {
+
   switch (action.type) {
-    case actions.SET_PRODUCTS:
+    case actions.SET_PRODUCTS_OLD:
       return {
         ...state,
       }
-    case actions.ADD_TO_CART:
+      
+    case actions.ADD_TO_CART_OLD:
       return {
         ...state,
         products: getProduct(state, action.payload)

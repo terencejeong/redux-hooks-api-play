@@ -1,6 +1,6 @@
 import { Product } from './index';
 export interface Cart {
-  cart: Array<CartItem>,
+  cart: CartItem[],
   isLoading: boolean,
   error: boolean
 };

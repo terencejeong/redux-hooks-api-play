@@ -4,15 +4,17 @@ import { createSelector } from 'reselect';
 import { AppStore, CartItem } from '../types';
 
 type cartSelectorData = {
-  shoppingCart: Array<CartItem>,
+  shoppingCart: CartItem[],
   shoppingCartTotal: number
 }
 
-const getShoppingCart = (state: AppStore): Array<CartItem> => state.cartsModule.cart;
+const getShoppingCart = (state: AppStore): CartItem[] => {
+  return state.cartsModule.cart;
+}
 
 const makeShoppingCartSelector = createSelector(
   [getShoppingCart],
-  (shoppingCart: Array<CartItem>): cartSelectorData => {
+  (shoppingCart: CartItem[]): cartSelectorData => {
     const shoppingCartTotal = shoppingCart.reduce((accum: number, current: CartItem) => {
       return accum + (current.value * current.quantityBought)
     }, 0)
